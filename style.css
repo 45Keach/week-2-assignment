@@ -1,0 +1,259 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background: #f4f7fb;
+  color: #1f2937;
+}
+
+#site-header {
+  background: #172554;
+  padding: 1rem 6%;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.logo,
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  width: min(100% - 2rem, 900px);
+  margin: 0 auto;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  padding: 2.5rem;
+  background: #dbeafe;
+  border-radius: 12px;
+}
+
+.hero img {
+  flex-shrink: 0;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 2.5rem;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+#budget {
+  background: #ecfdf5;
+  border-left: 5px solid #10b981;
+}
+
+.budget-section,
+.expenses-section,
+.help-section,
+.video-section,
+.services-section,
+.contact-section {
+  margin: 1.5rem 0;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.expense-inputs {
+  display: grid;
+  gap: 0.5rem;
+  max-width: 550px;
+  margin-top: 1.5rem;
+}
+
+/* Descendant selector: styles controls inside the form */
+.expense-form input,
+.expense-form select {
+  padding: 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font: inherit;
+  background: white;
+}
+
+/* Negation pseudo-class: styles every input except submit controls */
+input:not([type="submit"]) {
+  outline: none;
+}
+
+/* Focus pseudo-class: visibly highlights active text/number inputs */
+input:focus,
+select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Direct child selector: styles the button directly inside .expense-inputs */
+.expense-inputs > button {
+  margin-top: 0.75rem;
+}
+
+button {
+  padding: 0.8rem 1.2rem;
+  border: 0;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+#expenses {
+  background: #fff7ed;
+  border-left: 5px solid #f97316;
+}
+
+/* Table styling */
+.expense-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.expense-table th,
+.expense-table td {
+  border: 1px solid #cbd5e1;
+  padding: 0.9rem;
+  text-align: left;
+}
+
+.expense-table th {
+  background: #1e3a8a;
+  color: white;
+}
+
+/* Position pseudo-class: alternating table row backgrounds */
+.expense-table tr:nth-child(even) {
+  background: #eff6ff;
+}
+
+/* Position pseudo-class: highlights the first body row */
+.expense-table tbody tr:first-child {
+  font-weight: 700;
+}
+
+/* Hover pseudo-class: subtle feedback when the mouse moves over rows */
+.expense-table tbody tr:hover {
+  background: #dbeafe;
+}
+
+/* Descendant selector: styles all table data cells in the expenses section */
+.expenses-section td {
+  vertical-align: middle;
+}
+
+.help-section {
+  background: #fefce8;
+  border-left: 5px solid #eab308;
+}
+
+.help-section summary {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.help-section p {
+  margin-bottom: 0;
+}
+
+.video-section {
+  background: #f1f5f9;
+  border-left: 5px solid #64748b;
+}
+
+.video-section iframe {
+  display: block;
+  width: 100%;
+  max-width: 560px;
+  border: 0;
+  border-radius: 8px;
+}
+
+.services-section {
+  background: #f5f3ff;
+  border-left: 5px solid #7c3aed;
+}
+
+.service-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.service-card {
+  padding: 1.25rem;
+  background: white;
+  border-radius: 8px;
+}
+
+.contact-section {
+  background: #f0fdfa;
+  border-left: 5px solid #0d9488;
+}
+
+.contact-section a {
+  color: #0f766e;
+  font-weight: 700;
+}
+
+footer {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  text-align: center;
+  background: #172554;
+  color: white;
+}
+
+@media (max-width: 700px) {
+  .navbar,
+  .nav-links,
+  .hero {
+    flex-direction: column;
+  }
+
+  .service-list {
+    grid-template-columns: 1fr;
+  }
+
+  .hero,
+  .budget-section,
+  .expenses-section,
+  .help-section,
+  .video-section,
+  .services-section,
+  .contact-section {
+    padding: 1.25rem;
+  }
+}
