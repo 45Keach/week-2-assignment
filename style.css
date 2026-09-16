@@ -1,14 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+
+:root {
+  --navy: #172554;
+  --blue: #2563eb;
+  --blue-dark: #1d4ed8;
+  --blue-soft: #eff6ff;
+  --mint: #ecfdf5;
+  --mint-border: #10b981;
+  --orange-soft: #fff7ed;
+  --orange-border: #f97316;
+  --yellow-soft: #fefce8;
+  --yellow-border: #eab308;
+  --slate-soft: #f1f5f9;
+  --purple-soft: #f5f3ff;
+  --purple-border: #7c3aed;
+  --teal-soft: #f0fdfa;
+  --teal-border: #0d9488;
+  --text: #1e293b;
+  --muted: #64748b;
+  --border: #dbe3ef;
+  --white: #ffffff;
+  --shadow: 0 10px 25px rgba(23, 37, 84, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
   line-height: 1.6;
-  background: #f4f7fb;
-  color: #1f2937;
+  background: #f8fafc;
+  color: var(--text);
 }
 
 #site-header {
-  background: #172554;
+  background: var(--navy);
   padding: 1rem 6%;
+  border-bottom: 4px solid var(--blue);
 }
 
 .navbar {
@@ -16,17 +50,20 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .logo,
 .nav-links a {
-  color: white;
+  color: var(--white);
   text-decoration: none;
 }
 
 .logo {
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1.3rem;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .nav-links {
@@ -37,8 +74,17 @@ body {
   padding: 0;
 }
 
+.nav-links a {
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #bfdbfe;
+}
+
 main {
-  width: min(100% - 2rem, 900px);
+  width: min(100% - 2rem, 1000px);
   margin: 0 auto;
 }
 
@@ -48,26 +94,42 @@ main {
   gap: 1.5rem;
   margin: 2rem 0;
   padding: 2.5rem;
-  background: #dbeafe;
-  border-radius: 12px;
+  background: var(--blue-soft);
+  border: 1px solid #bfdbfe;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
 }
 
 .hero img {
   flex-shrink: 0;
+  padding: 0.75rem;
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.12);
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--navy);
+  line-height: 1.2;
 }
 
 h1 {
   margin-top: 0;
-  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+  font-size: clamp(2rem, 5vw, 2.75rem);
 }
 
 h2 {
   margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
 }
 
-#budget {
-  background: #ecfdf5;
-  border-left: 5px solid #10b981;
+p {
+  margin-top: 0.5rem;
 }
 
 .budget-section,
@@ -76,110 +138,144 @@ h2 {
 .video-section,
 .services-section,
 .contact-section {
-  margin: 1.5rem 0;
+  margin: 1.75rem 0;
   padding: 2rem;
-  border-radius: 12px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+#budget {
+  background: var(--mint);
+  border-left: 5px solid var(--mint-border);
 }
 
 .expense-inputs {
   display: grid;
-  gap: 0.5rem;
-  max-width: 550px;
+  gap: 0.6rem;
+  max-width: 600px;
   margin-top: 1.5rem;
 }
 
-/* Descendant selector: styles controls inside the form */
-.expense-form input,
-.expense-form select {
-  padding: 0.75rem;
-  border: 1px solid #cbd5e1;
-  border-radius: 6px;
-  font: inherit;
-  background: white;
+.expense-form label {
+  margin-top: 0.35rem;
+  color: var(--navy);
+  font-weight: 700;
 }
 
-/* Negation pseudo-class: styles every input except submit controls */
+.expense-form input,
+.expense-form select {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font: inherit;
+  color: var(--text);
+  background: var(--white);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.expense-form input::placeholder {
+  color: #94a3b8;
+}
+
 input:not([type="submit"]) {
   outline: none;
 }
 
-/* Focus pseudo-class: visibly highlights active text/number inputs */
 input:focus,
 select:focus {
-  border-color: #2563eb;
+  border-color: var(--blue);
+  outline: none;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
-/* Direct child selector: styles the button directly inside .expense-inputs */
 .expense-inputs > button {
-  margin-top: 0.75rem;
+  margin-top: 0.9rem;
 }
 
 button {
-  padding: 0.8rem 1.2rem;
+  padding: 0.85rem 1.3rem;
   border: 0;
-  border-radius: 6px;
-  background: #2563eb;
-  color: white;
+  border-radius: 8px;
+  background: var(--blue);
+  color: var(--white);
   font: inherit;
   font-weight: 700;
   cursor: pointer;
+  box-shadow: 0 5px 12px rgba(37, 99, 235, 0.2);
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 button:hover {
-  background: #1d4ed8;
+  background: var(--blue-dark);
+  transform: translateY(-1px);
 }
 
 #expenses {
-  background: #fff7ed;
-  border-left: 5px solid #f97316;
+  background: var(--orange-soft);
+  border-left: 5px solid var(--orange-border);
 }
 
-/* Table styling */
 .expense-table {
   width: 100%;
-  border-collapse: collapse;
-  background: white;
+  margin-top: 1.25rem;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
 }
 
 .expense-table th,
 .expense-table td {
-  border: 1px solid #cbd5e1;
-  padding: 0.9rem;
+  padding: 0.95rem 1rem;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
   text-align: left;
 }
 
+.expense-table th:last-child,
+.expense-table td:last-child {
+  border-right: 0;
+}
+
+.expense-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
 .expense-table th {
-  background: #1e3a8a;
-  color: white;
+  background: var(--navy);
+  color: var(--white);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.9rem;
 }
 
-/* Position pseudo-class: alternating table row backgrounds */
 .expense-table tr:nth-child(even) {
-  background: #eff6ff;
+  background: var(--blue-soft);
 }
 
-/* Position pseudo-class: highlights the first body row */
 .expense-table tbody tr:first-child {
   font-weight: 700;
 }
 
-/* Hover pseudo-class: subtle feedback when the mouse moves over rows */
 .expense-table tbody tr:hover {
   background: #dbeafe;
 }
 
-/* Descendant selector: styles all table data cells in the expenses section */
 .expenses-section td {
   vertical-align: middle;
 }
 
 .help-section {
-  background: #fefce8;
-  border-left: 5px solid #eab308;
+  background: var(--yellow-soft);
+  border-left: 5px solid var(--yellow-border);
 }
 
 .help-section summary {
+  color: var(--navy);
+  font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
   cursor: pointer;
 }
@@ -189,7 +285,7 @@ button:hover {
 }
 
 .video-section {
-  background: #f1f5f9;
+  background: var(--slate-soft);
   border-left: 5px solid #64748b;
 }
 
@@ -197,30 +293,43 @@ button:hover {
   display: block;
   width: 100%;
   max-width: 560px;
+  margin-top: 1.25rem;
   border: 0;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 .services-section {
-  background: #f5f3ff;
-  border-left: 5px solid #7c3aed;
+  background: var(--purple-soft);
+  border-left: 5px solid var(--purple-border);
 }
 
 .service-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+  margin-top: 1.25rem;
 }
 
 .service-card {
   padding: 1.25rem;
-  background: white;
-  border-radius: 8px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.service-card h3 {
+  margin-top: 0;
+  font-size: 1.05rem;
+}
+
+.service-card p {
+  margin-bottom: 0;
+  color: var(--muted);
 }
 
 .contact-section {
-  background: #f0fdfa;
-  border-left: 5px solid #0d9488;
+  background: var(--teal-soft);
+  border-left: 5px solid var(--teal-border);
 }
 
 .contact-section a {
@@ -229,11 +338,15 @@ button:hover {
 }
 
 footer {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
   padding: 1.5rem;
   text-align: center;
-  background: #172554;
-  color: white;
+  background: var(--navy);
+  color: var(--white);
+}
+
+footer p {
+  margin: 0;
 }
 
 @media (max-width: 700px) {
@@ -241,6 +354,12 @@ footer {
   .nav-links,
   .hero {
     flex-direction: column;
+  }
+
+  .nav-links {
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .service-list {
@@ -255,5 +374,11 @@ footer {
   .services-section,
   .contact-section {
     padding: 1.25rem;
+  }
+
+  .expense-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 }
